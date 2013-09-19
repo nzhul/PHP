@@ -37,6 +37,10 @@ ul#menu li a, ul#menu li ul.sub-menu li a {
     height: 28px;
     margin-top: -3px;
 }
+ul#menu li ul.sub-menu li a 
+{
+    width: 65px;
+}
 ul#menu li a:hover, ul#menu li ul.sub-menu li a:hover
 {
     background: #8a8a8a;

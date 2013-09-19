@@ -1,5 +1,6 @@
 <?php 
 require 'inc/header.php';
+require 'inc/constants.php';
 ?>
             <div id="navigation">
                 <ul id="menu">
@@ -8,10 +9,12 @@ require 'inc/header.php';
                     </li>
                     <li><a href="#">Filter</a>
                         <ul class="sub-menu">
-                            <li><a href="#">Sub Menu 1</a></li>
-                            <li><a href="#">Sub Menu 2</a></li>
-                            <li><a href="#">Sub Menu 2</a></li>
-                            <li><a href="#">Sub Menu 2</a></li>
+                            <li><a href="index.php">All</a></li>
+                            <?php 
+                            foreach ($types as $key => $value) {
+                                echo '<li><a href="index.php?sortid='.$key.'">'.$value.'</a></li>';
+                            }
+                            ?>
                         </ul>
                     </li>
                 </ul>
