@@ -5,7 +5,7 @@ require 'inc/constants.php';
 <?php
 if (isset($_POST['submit'])) {
     $error_array = array();
-    $post_product = htmlspecialchars($_POST['product']);
+    $post_product = trim(htmlspecialchars($_POST['product'])) ;
     $post_cost = floatval($_POST['cost']);
     $post_type = (int) $_POST['type'];
 
