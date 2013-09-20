@@ -5,7 +5,7 @@ require 'inc/constants.php';
 <?php
 if (isset($_POST['submit'])) {
     $error_array = array();
-    $post_product = trim(htmlspecialchars($_POST['product'])) ;
+    $post_product = str_replace('|', '-', trim(htmlspecialchars($_POST['product'])));
     $post_cost = floatval($_POST['cost']);
     $post_type = (int) $_POST['type'];
 
@@ -18,8 +18,8 @@ if (isset($_POST['submit'])) {
     if ($post_cost <= 0) {
         $error_array['post_cost'] = 'Цената трябва да е полужително число!';
     }
-    if ($post_cost >= 99999) {
-        $error_array['post_cost'] = 'Цената трябва да е по-малка от 99999!';
+    if ($post_cost >= 999) {
+        $error_array['post_cost'] = 'Цената трябва да е по-малка от 999!';
     }
     if ($post_type < 0) {
         $error_array['post_type'] = 'Ей хакерче!';

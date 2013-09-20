@@ -40,7 +40,7 @@ require 'inc/constants.php';
                 echo '<tr>';
                 echo '<td>' . $counter . '.</td>
         <td>' . $splitedArray[0] . '</td>
-        <td>' . $splitedArray[1] . '</td>
+        <td>' . number_format($splitedArray[1], 2)  . '</td>
         <td>' . $types[$splitedArray[2]] . '</td>
         <td title="' . date("H:m:s", (int) $splitedArray[3]) . '">' . date("d.m.y", (int) $splitedArray[3]) . '</td>
         <td><a class="btn edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
@@ -53,9 +53,9 @@ require 'inc/constants.php';
             echo '<tr>';
             echo '<td>' . $counter . '.</td>
         <td>' . $splitedArray[0] . '</td>
-        <td>' . $splitedArray[1] . '</td>
+        <td>' . number_format($splitedArray[1], 2) . '</td>
         <td>' . $types[$splitedArray[2]] . '</td>
-        <td title="' . date("H:m:s", (int) $splitedArray[3]) . '">' . date("d.m.y", (int) $splitedArray[3]) . '</td>
+        <td title="' . date("H:i:s", (int) $splitedArray[3]) . '">' . date("d.m.y", (int) $splitedArray[3]) . '</td>
         <td><a class="btn edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
         <td><a class="btn del" href="form.php?del=' . (int) $splitedArray[3] . '">del</a></td>';
             echo '</tr>';
@@ -67,7 +67,7 @@ require 'inc/constants.php';
     <tr>
         <td></td>
         <td></td>
-        <td><span class="sum"><?= $sum; ?></span></td>
+        <td><span class="sum"><?= number_format($sum, 2) ; ?></span></td>
         <td></td>
         <td></td>
         <td></td>
