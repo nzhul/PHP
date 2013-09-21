@@ -6,32 +6,54 @@ require 'inc/constants.php';
 if (isset($_POST['submit'])) {
     $error_array = array();
     $post_product = str_replace('|', '-', trim(htmlspecialchars($_POST['product'])));
-    $post_cost = floatval($_POST['cost']);
+    $post_cost = floatval(str_replace(',', '.', $_POST['cost']));
     $post_type = (int) $_POST['type'];
 
-    if (mb_strlen($post_product, 'UTF-8') < 2) {
-        $error_array['post_content'] = 'Името на продукта е твърде кратко!';
+    if (mb_strlen($post_product, 'UTF-8') < 3) {
+        $error_array['post_content'] = 'The name of the product is too short!';
     }
     if (mb_strlen($post_product, 'UTF-8') > 100) {
-        $error_array['post_content'] = 'Името на продукта е твърде дълго - max 100!';
+        $error_array['post_content'] = 'The name of the product is too long - max 100!';
     }
     if ($post_cost <= 0) {
-        $error_array['post_cost'] = 'Цената трябва да е полужително число!';
+        $error_array['post_cost'] = 'The cost must be positive number!';
     }
     if ($post_cost >= 999) {
-        $error_array['post_cost'] = 'Цената трябва да е по-малка от 999!';
+        $error_array['post_cost'] = 'The cost must be less than 999!';
     }
     if ($post_type < 0) {
-        $error_array['post_type'] = 'Ей хакерче!';
+        $error_array['post_type'] = 'Hey you!';
     }
 
     if (count($error_array) == 0) {
         // We dont have errors so we record the new input
-        $data = $post_product . '|' . $post_cost . '|' . $post_type . '|' . time()."\r\n";
-        if (file_put_contents('database.txt', $data,FILE_APPEND)) {
+        $data = $post_product . '|' . $post_cost . '|' . $post_type . '|' . time() . "\r\n";
+        if (file_put_contents('database.txt', $data, FILE_APPEND)) {
             $success = true;
         }
     }
+}
+if (isset($_GET['edit'])) {
+    
+} else {
+    $productVal = "";
+    $costVal = "";
+    $typeVal = 0;
+}
+
+if (isset($_GET['del']) && (int)$_GET['del'] > 0) {
+    $fileData = file('database.txt');
+    $newData = "";
+    for($i = 0; $i < count($fileData); $i++)
+    {
+        if (strpos($fileData[$i], $_GET['del'])) {
+            continue;
+        }
+        $newData = $newData.$fileData[$i];
+    }
+    if (file_put_contents('database.txt', $newData)) {
+        $successDel = true;
+    } 
 }
 ?>
 <div id="navigation">
@@ -56,18 +78,23 @@ if (isset($_POST['submit'])) {
             }
             if (isset($success)) {
                 echo '<tr><td colspan="2" style="color: #93c72e;">';
-                echo 'Записът беше направен успешно!';
+                echo 'Successfull record!';
+                echo '</td></tr>';
+            }
+            if (isset($successDel)) {
+                echo '<tr><td colspan="2" style="color: #93c72e;">';
+                echo 'The record was successfuly deleted!';
                 echo '</td></tr>';
             }
             ?>
 
             <tr>
                 <td><label for="product">Product</label></td>
-                <td><input type="text" name="product" id="product" /></td>
+                <td><input type="text" name="product" id="product" value="<?= $productVal ?>" /></td>
             </tr>
             <tr>
                 <td><label for="cost">Cost</label></td>
-                <td><input type="text" name="cost" id="cost" /></td>
+                <td><input type="text" name="cost" id="cost" value="<?= $costVal ?>" /></td>
             </tr>
             <tr>
                 <td><label for="type">Type</label></td>

@@ -31,6 +31,11 @@ require 'inc/constants.php';
     </tr>
     <?php
     $rawData = file('database.txt');
+    if (count($rawData) == 0) {
+                echo '<tr><td colspan="7" style="color: #93c72e;height: 50px;">';
+                echo 'At the moment there is not even one record in the  table!<br/><a href="form.php">Make the first record from here!</a>';
+                echo '</td></tr>';
+            }
     $counter = 1;
     $sum = 0;
     for ($i = 0; $i < count($rawData); $i++) {

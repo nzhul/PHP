@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-body {background: url(../img/bg.jpg)repeat;font-family: Tahoma;font-size: 14px;}
+body {background: #33363b url(../img/bg.jpg)repeat-x;font-family: Tahoma;font-size: 14px;}
 #wrapper {width: 500px;margin: 0 auto;position: relative;top: 100px;}
 h1 {color: #ffffff;font-size: 50px;float: left; font-weight: normal;}
 h2 {color: #ffffff; font-size: 22px;float: left;position: relative;left: -102px;top:5px; font-weight: normal;}
@@ -22,6 +22,8 @@ select {background: #e0e0e0;border: 1px solid #949494; width: 190px;height: 30px
 .btn {display: block;width: 15px;height: 15px;}
 .del {background: url(../img/delete.png)no-repeat;text-indent: -9999px; height: 16px;}
 .edit {background: url(../img/edit.png)no-repeat;text-indent: -9999px;}
+td a {color: #93c72e; text-decoration: none;}
+td a:hover {color: #93c72e; text-decoration: underline;}
 
 /*#add {float:left;width: 423px;height: 300px;margin: 10px 0 0 0px; background: #555; padding: 15px;}*/
 
