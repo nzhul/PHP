@@ -30,12 +30,31 @@ require 'inc/constants.php';
         <td class="sum"></td>
     </tr>
     <?php
+    if (isset($_GET['del']) && (int) $_GET['del'] > 0) {
+        $fileData = file('database.txt');
+        $newData = "";
+        for ($i = 0; $i < count($fileData); $i++) {
+            if (strpos($fileData[$i], $_GET['del'])) {
+                continue;
+            }
+            $newData = $newData . $fileData[$i];
+        }
+        if (file_put_contents('database.txt', $newData)) {
+            $successDel = true;
+        }
+    }
+    if (isset($successDel)) {
+        echo '<tr><td colspan="7" style="color: #93c72e;">';
+        echo 'The record was successfuly deleted!';
+        echo '</td></tr>';
+    }
+
     $rawData = file('database.txt');
     if (count($rawData) == 0) {
-                echo '<tr><td colspan="7" style="color: #93c72e;height: 50px;">';
-                echo 'At the moment there is not even one record in the  table!<br/><a href="form.php">Make the first record from here!</a>';
-                echo '</td></tr>';
-            }
+        echo '<tr><td colspan="7" style="color: #93c72e;height: 50px;">';
+        echo 'At the moment there is not even one record in the  table!<br/><a href="form.php">Make the first record from here!</a>';
+        echo '</td></tr>';
+    }
     $counter = 1;
     $sum = 0;
     for ($i = 0; $i < count($rawData); $i++) {
@@ -45,11 +64,11 @@ require 'inc/constants.php';
                 echo '<tr>';
                 echo '<td>' . $counter . '.</td>
         <td>' . $splitedArray[0] . '</td>
-        <td>' . number_format($splitedArray[1], 2)  . '</td>
+        <td>' . number_format($splitedArray[1], 2) . '</td>
         <td>' . $types[$splitedArray[2]] . '</td>
         <td title="' . date("H:m:s", (int) $splitedArray[3]) . '">' . date("d.m.y", (int) $splitedArray[3]) . '</td>
-        <td><a class="btn edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
-        <td><a class="btn del" href="form.php?del=' . (int) $splitedArray[3] . '">del</a></td>';
+        <td><a class="btn edit" title="Edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
+        <td><a class="btn del" title="Delete" href="index.php?del=' . (int) $splitedArray[3] . '">del</a></td>';
                 echo '</tr>';
                 $sum += $splitedArray[1];
                 $counter++;
@@ -61,8 +80,8 @@ require 'inc/constants.php';
         <td>' . number_format($splitedArray[1], 2) . '</td>
         <td>' . $types[$splitedArray[2]] . '</td>
         <td title="' . date("H:i:s", (int) $splitedArray[3]) . '">' . date("d.m.y", (int) $splitedArray[3]) . '</td>
-        <td><a class="btn edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
-        <td><a class="btn del" href="form.php?del=' . (int) $splitedArray[3] . '">del</a></td>';
+        <td><a class="btn edit" title="Edit" href="form.php?edit=' . (int) $splitedArray[3] . '">edit</a></td>
+        <td><a class="btn del" title="Delete"  href="index.php?del=' . (int) $splitedArray[3] . '">del</a></td>';
             echo '</tr>';
             $sum += $splitedArray[1];
             $counter++;
@@ -72,7 +91,7 @@ require 'inc/constants.php';
     <tr>
         <td></td>
         <td></td>
-        <td><span class="sum"><?= number_format($sum, 2) ; ?></span></td>
+        <td><span class="sum"><?= number_format($sum, 2); ?></span></td>
         <td></td>
         <td></td>
         <td></td>
