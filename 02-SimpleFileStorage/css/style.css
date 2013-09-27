@@ -26,7 +26,7 @@ select {background: #e0e0e0;border: 1px solid #949494; width: 190px;height: 30px
 td a {color: #93c72e; text-decoration: none;}
 td a:hover {color: #93c72e; text-decoration: underline;}
 
-input[type="file"] {
+#fname {
     width: 86px;
     position: relative;
     top:-6px;
@@ -36,7 +36,18 @@ input[type="file"] {
     border: none;
     background: url(../img/uploadfilebtn.jpg)no-repeat;
 }
-input[type="file"]:hover {background-position: 0px -36px;}
+#fnameLoaded {    
+    width: 86px;
+    position: relative;
+    top:-6px;
+    height: 36px;
+    cursor: pointer;
+    text-indent: -9999px;
+    border: none;
+    background: url(../img/uploadfilebtn.jpg)no-repeat;
+    background-position: 0px -72px;}
+
+#fname:hover {background-position: 0px -36px;}
 #menu input[type="submit"] {height: 29px;}
 
 

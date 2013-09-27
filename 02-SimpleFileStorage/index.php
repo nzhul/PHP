@@ -5,7 +5,8 @@ if (!isset($_SESSION['isLogged'])) {
     exit;
 }
 if (isset($_GET['del'])) {
-    if (unlink('userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username'] . DIRECTORY_SEPARATOR . $_GET['del'])) {
+    if (file_exists('userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username'] . DIRECTORY_SEPARATOR . $_GET['del'])) {
+        unlink('userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username'] . DIRECTORY_SEPARATOR . $_GET['del']);
         header('Location: index.php?succdel=1');
     }
 }
@@ -14,7 +15,7 @@ require 'inc/header.php';
 <div id="navigation">
     <form method="POST" action="processupload.php" enctype="multipart/form-data">
         <ul id="menu">
-            <li><input type="file" name="upload" /></li>
+            <li><input type="file" id="fname" name="upload" onchange="document.getElementById('fname').setAttribute('id', 'fnameLoaded');" /></li>
             <li><input type="submit" name="submit" value="Upload" />
             </li>
             <li style="float: right;"><a href="logout.php">Logout</a></li>
@@ -86,7 +87,8 @@ require 'inc/header.php';
         <td>Del</td>
     </tr>
 </table>
-
+<div style="clear:both;">&nbsp;</div>
+<span style="color: #d4d4d4;">Allowed File types:</span> <span style="color: #949494;">txt, png, jpe, jpeg, jpg, gif, bmp, pdf, doc, rtf, xls, ppt</span>
 <?php
 include 'inc/footer.php';
 ?>

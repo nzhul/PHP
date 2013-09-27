@@ -45,7 +45,7 @@ if (isset($_POST['register'])) {
 
     if (!isset($error_array)) {
         // There are no errors - procede to recording
-        $data = $username . '|' . md5($password) . '|' . $email . '|' . time() . "\r\n";
+        $data = $username . '|' . md5($password) . '|' . $email . '|' . time() . PHP_EOL;
         if (file_put_contents('database/users.txt', $data, FILE_APPEND)) {
             mkdir('userFolders/'.$username);
             $succreg = true;
@@ -59,7 +59,7 @@ require 'inc/header.php';
 <div id="navigation" style="width: 350px;">
     <ul id="menu" >
         <li>
-            <a href="login.php">You already have an account ? Login Here!</a>
+            <a href="login.php">You already have an account ? <span style="color: #ffc000;">Login Here!</span></a>
         </li>
     </ul>
 </div>
