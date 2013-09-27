@@ -9,6 +9,7 @@
 body {background: #33363b url(../img/bg.jpg)repeat-x;font-family: Tahoma;font-size: 14px;}
 #wrapper {width: 600px;margin: 0 auto;position: relative;top: 100px;}
 h1 {color: #ffffff;font-size: 50px;float: left; font-weight: normal;}
+h1 a {color: white;text-decoration: none;}
 h2 {color: #ffffff; font-size: 22px;float: left;position: relative;left: -102px;top:5px; font-weight: normal;}
 #navigation {float: left;width: 598px;height: 36px; background: #636363;}
 table {color: #949494; border-collapse: collapse;width: 600px;margin-left: -1px;position: relative;top:10px;float: left;z-index: 2;}
@@ -33,9 +34,10 @@ input[type="file"] {
     cursor: pointer;
     text-indent: -9999px;
     border: none;
-    background: url(../img/uploadfilebtn.jpg)no-repeat;;
+    background: url(../img/uploadfilebtn.jpg)no-repeat;
 }
-/*#add {float:left;width: 423px;height: 300px;margin: 10px 0 0 0px; background: #555; padding: 15px;}*/
+input[type="file"]:hover {background-position: 0px -36px;}
+#menu input[type="submit"] {height: 29px;}
 
 
 /*Initialize*/

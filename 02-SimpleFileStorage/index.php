@@ -1,63 +1,89 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['isLogged'])) {
     header('Location: login.php');
     exit;
 }
-?>
-<?php
+if (isset($_GET['del'])) {
+    if (unlink('userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username'] . DIRECTORY_SEPARATOR . $_GET['del'])) {
+        header('Location: index.php?succdel=1');
+    }
+}
 require 'inc/header.php';
 ?>
 <div id="navigation">
-    <ul id="menu">
-        <li><input type="file" name="upload" /></li>
-        <li><a href="#">Filter</a>
-            <ul class="sub-menu">
-                <li><a href="index.php">All</a></li>
-                <li><a href="#">asd</a></li>
-                <li><a href="#">asd</a></li>
-                <li><a href="#">asd</a></li>
-            </ul>
-        </li>
-        <li style="float: right;"><a href="logout.php">LO</a></li>
-        <li style="float: right;"><a href="#">Hello, <?= $_SESSION['username'] ?></a></li>
-    </ul>
+    <form method="POST" action="processupload.php" enctype="multipart/form-data">
+        <ul id="menu">
+            <li><input type="file" name="upload" /></li>
+            <li><input type="submit" name="submit" value="Upload" />
+            </li>
+            <li style="float: right;"><a href="logout.php">Logout</a></li>
+            <li style="float: right;"><a href="#">Hello, <?= $_SESSION['username'] ?></a></li>
+        </ul>
+    </form>
 </div>
 <table>
+    <?php
+    if (isset($_GET['succdel'])) {
+        echo '<tr><td colspan="6" style="color: #ff491f;">';
+        echo 'File Was Deleted Permanently!';
+        echo '</td></tr>';
+    }
+    if (isset($_GET['succ'])) {
+        echo '<tr><td colspan="6" style="color: #93c72e;">';
+        echo 'The File was uploaded!';
+        echo '</td></tr>';
+    }
+    if (isset($_GET['err']) && $_GET['err'] == 1) {
+        echo '<tr><td colspan="6" style="color: #ff491f;">';
+        echo 'Invalid File Format/Size!';
+        echo '</td></tr>';
+    }
+    if (isset($_GET['err']) && $_GET['err'] == 2) {
+        echo '<tr><td colspan="6" style="color: #ff491f;">';
+        echo 'Upload Error!';
+        echo '</td></tr>';
+    }
+    ?>
     <tr>
         <td>№</td>
         <td>Name</td>
         <td>Type</td>
         <td>Date</td>
+        <td>Size</td>
         <td>Del</td>
     </tr>
-    <?php 
-    $dirContent = scandir('userFolders/'.$_SESSION['username']);
-    foreach ($dirContent as $key => $value) {
-        echo $value.';  ';
+    <?php
+    $folderData = scandir('userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username']);
+    if (count($folderData) <= 2) {
+        echo '<tr><td colspan="6" style="color: #ffc000;">';
+        echo 'Your directory is still empty!<br/>Upload your first File!';
+        echo '</td></tr>';
+    }
+    $counter = 1;
+    for ($i = 2; $i < count($folderData); $i++) {
+        $filePath = 'userFolders' . DIRECTORY_SEPARATOR . $_SESSION['username'] . DIRECTORY_SEPARATOR . $folderData[$i];
+        $fileLastEdit = date('d/m/Y', filemtime($filePath));
+        $fileSize = number_format(filesize($filePath) / 1048576, 2);
+        $fileType = pathinfo($filePath, PATHINFO_EXTENSION);
+        echo '<tr>';
+        echo '<td>' . $counter . '.</td>';
+        echo '<td style="text-align:left;"><a href="' . $filePath . '">' . $folderData[$i] . '</a></td>';
+        echo '<td>' . $fileType . '</td>';
+        echo '<td>' . $fileLastEdit . '</td>';
+        echo '<td>' . $fileSize . '&nbsp;mb</td>';
+        echo '<td><a class="btn del" title="Delete" href="?del=' . $folderData[$i] . '">del</a></td>';
+        echo '</tr>';
+        $counter++;
     }
     ?>
     <tr>
-        <td>1.</td>
-        <td><a href="#">This is really long file name and so on asd s s s  s s .pdf</a></td>
-        <td>asd</td>
-        <td>22.22.2013</td>
-        <td><a class="btn del" title="Delete" href="#">del</a></td>
-    </tr>
-    <tr>
-        <td>2.</td>
-        <td><a href="#">This is really long file name and so on asd s s s  s s .pdf</a></td>
-        <td>asd</td>
-        <td>22.22.2013</td>
-        <td><a class="btn del" title="Delete" href="#">del</a></td>
-    </tr>
-    
-    <tr>
         <td>№</td>
-        <td>asd</td>
-        <td>ICO</td>
+        <td>Name</td>
+        <td>Type</td>
         <td>Date</td>
-        <td>DL</td>
+        <td>Size</td>
+        <td>Del</td>
     </tr>
 </table>
 

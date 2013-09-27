@@ -7,5 +7,5 @@
     </head>
     <body>
         <div id="wrapper">
-            <h1>File Storage</h1>
+            <h1><a href="index.php">File Storage</a></h1>
             <div style="clear:both;"></div>
