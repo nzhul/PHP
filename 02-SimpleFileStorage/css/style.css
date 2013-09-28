@@ -20,7 +20,7 @@ input[type="submit"] {background: #e0e0e0;border: 1px solid #949494; width: 70px
 input {background: #e0e0e0;border: 1px solid #949494; width: 180px;height: 25px;padding-left: 10px;background: #282828; color: #e0e0e0; }
 select {background: #e0e0e0;border: 1px solid #949494; width: 190px;height: 30px;padding-left: 10px;background: #282828; color: #e0e0e0;}
 /*#shadow {width: 453px; height: 81px;background: url(../img/shadow.png)no-repeat center bottom;position: relative;top: -35px;z-index: 1;}*/
-.btn {display: block;width: 15px;height: 15px;}
+.btn {display: block;width: 15px;height: 15px; margin: 0 auto;}
 .del {background: url(../img/delete.png)no-repeat;text-indent: -9999px; height: 16px;}
 .edit {background: url(../img/edit.png)no-repeat;text-indent: -9999px;}
 td a {color: #93c72e; text-decoration: none;}
