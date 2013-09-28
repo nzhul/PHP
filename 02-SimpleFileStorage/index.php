@@ -73,7 +73,7 @@ require 'inc/header.php';
         echo '<td>' . $fileType . '</td>';
         echo '<td>' . $fileLastEdit . '</td>';
         echo '<td>' . $fileSize . '&nbsp;mb</td>';
-        echo '<td><a class="btn del" title="Delete" href="?del=' . $folderData[$i] . '">del</a></td>';
+        echo '<td><a class="btn del" title="Delete" href="?del=' . urlencode($folderData[$i]) . '">del</a></td>';
         echo '</tr>';
         $counter++;
     }
