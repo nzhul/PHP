@@ -30,17 +30,17 @@ require 'inc/header.php';
         echo 'File Was Deleted Permanently!';
         echo '</td></tr>';
     }
-    if (isset($_GET['succ'])) {
+    else if (isset($_GET['succ'])) {
         echo '<tr><td colspan="6" style="color: #93c72e;">';
         echo 'The File was uploaded!';
         echo '</td></tr>';
     }
-    if (isset($_GET['err']) && $_GET['err'] == 1) {
+    else if (isset($_GET['err']) && $_GET['err'] == 1) {
         echo '<tr><td colspan="6" style="color: #ff491f;">';
         echo 'Invalid File Format/Size!';
         echo '</td></tr>';
     }
-    if (isset($_GET['err']) && $_GET['err'] == 2) {
+    else if (isset($_GET['err']) && $_GET['err'] == 2) {
         echo '<tr><td colspan="6" style="color: #ff491f;">';
         echo 'Upload Error!';
         echo '</td></tr>';
