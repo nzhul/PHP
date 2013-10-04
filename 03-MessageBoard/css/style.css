@@ -17,9 +17,10 @@ td {background: #555555; border: 1px solid #363636; padding: 10px; text-align: l
 tr:first-child td, tr:last-child td {background: #464646;}
 .sum {font-weight: bold;color: #e0e0e0;}
 input[type="submit"] {background: #e0e0e0;border: 1px solid #949494; width: 70px; height: 30px; padding-left: 5px; color: #1c1c1c;cursor: pointer;}
-input, textarea {background: #e0e0e0;border: 1px solid #949494; width: 180px;height: 25px;padding-left: 10px;background: #282828; color: #e0e0e0; }
-textarea {height: 100px; width: 400px;}
+input, textarea {background: #e0e0e0;border: 1px solid #949494; width: 180px;height: 25px;padding-left: 10px; background: #282828; color: #e0e0e0; }
+textarea {height: 100px; width: 400px;padding-top: 10px;}
 #postField {display: none;}
+#postCat {display: none;}
 select {background: #e0e0e0;border: 1px solid #949494; width: 190px;height: 30px;padding-left: 10px;background: #282828; color: #e0e0e0;}
 /*#shadow {width: 453px; height: 81px;background: url(../img/shadow.png)no-repeat center bottom;position: relative;top: -35px;z-index: 1;}*/
 .btn {display: block;width: 15px;height: 15px; margin: 0 auto;}
@@ -75,7 +76,7 @@ ul#menu li a, ul#menu li ul.sub-menu li a {
 }
 ul#menu li ul.sub-menu li a 
 {
-    width: 65px;
+    min-width: 65px;
 }
 ul#menu li a:hover, ul#menu li ul.sub-menu li a:hover
 {
@@ -91,7 +92,7 @@ ul#menu li ul.sub-menu {
     position: absolute;
     top: 30px;
     left: 0;
-    width: 100px;
+    min-width: 100px;
     z-index: 3;
 }
 ul#menu li:hover ul.sub-menu {

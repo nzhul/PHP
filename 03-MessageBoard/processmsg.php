@@ -49,4 +49,42 @@ if (isset($_POST['postmsg'])) {
         exit;
     }
 }
+
+
+if (isset($_POST['postcat']) && $_SESSION['power'] == 2) {
+    $cname = mysqli_real_escape_string($link, trim($_POST['cname']));
+    if (mb_strlen($cname, 'UTF-8') < 3) {
+        $error_array['cname_short'] = 'The title is too short';
+    }
+    if (mb_strlen($cname, 'UTF-8') > 30) {
+        $error_array['cname_long'] = 'The title is too long';
+    }
+
+    if (!isset($error_array)) {
+        $sql = 'SELECT cat_id FROM cat WHERE cname="' . $cname. '"';
+        $result = mysqli_query($link, $sql);
+        if ($result->num_rows > 0) {
+            $error_array['catExists'] = 'Category already Exists';
+        }
+    }
+
+    if (!isset($error_array)) {
+        // record the new cat
+        $sql = 'INSERT INTO cat (cat_id, cname)
+                VALUES (NULL, "' . $cname . '")';
+        if (mysqli_query($link, $sql)) {
+            header('Location: index.php?succcat=1');
+            exit;
+        } else {
+            $error_array['mysql error'] = mysqli_error($link);
+            $_SESSION['msg_err_array'] = $error_array;
+            header('Location: index.php?err=1');
+            exit;
+        }
+    } else {
+        $_SESSION['msg_err_array'] = $error_array;
+        header('Location: index.php?err=1');
+        exit;
+    }
+}
 ?>

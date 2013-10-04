@@ -4,14 +4,46 @@ if (!isset($_SESSION['isLogged'])) {
     header('Location: login.php');
     exit;
 }
+if ($_SESSION['power'] == 2 && isset($_GET['del'])) {
+    $delID = (int) $_GET['del'];
+    $sql = 'DELETE FROM msg WHERE msg_id=' . $delID;
+    if (mysqli_query($link, $sql)) {
+        header('Location: index.php?succdel=1');
+        exit;
+    }
+}
 require 'inc/header.php';
+$linkFix = 'asc';
+$sqlFilter = '';
+$sqlDateFilter = 'desc';
+if (isset($_GET['c'])) {
+    $cat = (int) $_GET['c'];
+    $sqlFilter = ' AND c.cat_id=' . $cat . ' ';
+} else if (isset($_GET['u'])) {
+    $user = (int) $_GET['u'];
+    $sqlFilter = ' AND u.user_id=' . $user . ' ';
+} else if (isset($_GET['sort'])) {
+    if ($_GET['sort'] == 'desc') {
+        $linkFix = 'asc';
+        $sqlDateFilter = 'desc';
+        $sqlFilter = '';
+    } else {
+        $linkFix = 'desc';
+        $sqlDateFilter = 'asc';
+        $sqlFilter = '';
+    }
+}
 ?>
 <div id="navigation">
     <ul id="menu">
         <li><a href="#" id="addMSG">Add Message</a></li>
-        <li><a href="#">Filter</a>
+        <?php
+        if ($_SESSION['power'] == 2) {
+            echo '<li><a href="#" id="addCat">Add Category</a></li>';
+        }
+        ?>
+        <li><a href="index.php">Filter</a>
             <ul class="sub-menu">
-                <li><a href="index.php">All</a></li>
                 <?php
                 $sql = 'SELECT * FROM cat';
                 $result = mysqli_query($link, $sql);
@@ -23,6 +55,7 @@ require 'inc/header.php';
                 ?>
             </ul>
         </li>
+        <li><a href="?sort=<?= $linkFix; ?>">Sort <?= $linkFix; ?></a></li>
         <li style="float: right;"><a href="logout.php">Logout</a></li>
         <li style="float: right;"><a href="#">Hello, <?= $_SESSION['username'] ?></a></li>
     </ul>
@@ -63,11 +96,11 @@ require 'inc/header.php';
 <form action="processmsg.php" method="POST">
     <table id="postCat">
         <tr>
-            <td colspan="2" style="text-align: center;"><label for="title">Add New Category</label></td>
+            <td colspan="2" style="text-align: center;"><label for="cname">Add New Category</label></td>
         </tr>
         <tr>
-            <td><label for="title">Title</label></td>
-            <td><input type="text" name="title" id="title" value="" style="width: 400px;" /></td>
+            <td><label for="cname">Title</label></td>
+            <td><input type="text" name="cname" id="cname" value="" style="width: 400px;" /></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -92,30 +125,24 @@ if (isset($_GET['succreg'])) {
     echo '<table><tr><td style="color: #ff491f;">';
     echo 'The message was deleted!';
     echo '</td></tr></table>';
-}
-if ($_SESSION['power'] == 2 && isset($_GET['del'])) {
-    $delID = (int) $_GET['del'];
-    $sql = 'DELETE FROM msg WHERE msg_id=' . $delID;
-    if (mysqli_query($link, $sql)) {
-        header('Location: index.php?succdel=1');
-        exit;
-    }
+} else if (isset($_GET['succcat'])) {
+    echo '<table><tr><td style="color: #93c72e;">';
+    echo 'The Category was added!';
+    echo '</td></tr></table>';
 }
 
-if (isset($_GET['c'])) {
-    $cat = (int) $_GET['c'];
-    $sqlFilter = ' AND c.cat_id=' . $cat . ' ';
-} else {
-    $sqlFilter = '';
-}
-$sql = 'SELECT u.username,m.msg_id,m.title,m.content,m.date_added, c.cname, c.cat_id 
+$sql = 'SELECT u.username,u.user_id,m.msg_id,m.title,m.content,m.date_added, c.cname, c.cat_id 
         FROM msg as m, users as u, cat as c
         WHERE m.author_id = u.user_id AND c.cat_id = m.cat_id' .
         $sqlFilter
-        . ' ORDER BY m.date_added DESC';
+        . ' ORDER BY m.date_added ' . $sqlDateFilter;
 $result = mysqli_query($link, $sql);
 if ($result->num_rows > 0) {
-    $counter = $result->num_rows;
+    if ($linkFix == 'asc') {
+        $counter = $result->num_rows;
+    } else {
+        $counter = 1;
+    }
     while ($row = $result->fetch_assoc()) {
         $real_date = date('d/m/Y', $row['date_added']);
         echo '<table>
@@ -126,14 +153,18 @@ if ($result->num_rows > 0) {
         <td>' . $row['content'] . '</td>
     </tr>
     <tr>
-        <td>от ' . $row['username'] . ' | ' . $real_date . ' | <a href="?c=' . $row['cat_id'] . '">' . $row['cname'] . '</a>';
+        <td>Author: <a href="?u=' . $row['user_id'] . '">' . $row['username'] . '</a> | Posted on: ' . $real_date . ' | Category: <a href="?c=' . $row['cat_id'] . '">' . $row['cname'] . '</a>';
         if ($_SESSION['power'] == 2) {
             echo '<a class="btn del" title="Delete" href="?del=' . $row['msg_id'] . '">del</a>';
         }
         echo '</td>
     </tr>
 </table>';
-        $counter--;
+        if ($linkFix == 'desc') {
+            $counter++;
+        } else {
+            $counter--;
+        }
     }
 }
 ?>

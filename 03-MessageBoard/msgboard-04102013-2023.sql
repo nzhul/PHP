@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2013 at 02:58 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Generation Time: Oct 04, 2013 at 05:22 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `msgboard`
 --
-CREATE DATABASE `msgboard` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `msgboard` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `msgboard`;
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `cat` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cname` varchar(50) NOT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `cat`
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `cat` (
 
 INSERT INTO `cat` (`cat_id`, `cname`) VALUES
 (1, 'Diablo III'),
-(2, 'Starcraft II');
+(2, 'Starcraft II'),
+(3, 'League of Legends');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `msg` (
   PRIMARY KEY (`msg_id`),
   KEY `author` (`author_id`),
   KEY `cat_id` (`cat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `msg`
@@ -68,7 +69,9 @@ INSERT INTO `msg` (`msg_id`, `author_id`, `cat_id`, `date_added`, `title`, `cont
 (1, 1, 1, 1380834235, 'Заглавие на темата', 'Чей да помрънкам малко. Тоя народ се е побъркал,честно. Оправям си аз докоменти''пари и някъв бастун идва да залага на гонки. Аз му казвам че съм приключил той почва да мърмори. '),
 (2, 1, 1, 1380836702, 'Как/Защо избрахте първия си герой?', 'В Diablo II любим ми беше Варварина и си казах, че с него ще продължа.Като играх отворената бета имах малки колебания дали да не започна с Монаха, но се радвам, че не го направих.'),
 (3, 1, 2, 1380836984, 'I just got level 90', 'So I most likely have mediocre gold level skill with all three races. ^_^ One thing I learned from off racing is that all races are OP and every race has OP units.'),
-(5, 1, 2, 1380893322, 'Some Starcraft Topic', 'Awesome Starcraft content come shere');
+(5, 1, 2, 1380893322, 'Some Starcraft Topic', 'Awesome Starcraft content come shere'),
+(8, 4, 1, 1380903767, 'Пост на елито', 'Елито решава и тя да поства'),
+(9, 4, 3, 1380906966, 'New garen''s crit animation', 'Omg there are so many things wrong with this VU. Why is it even considered an "upgrade" when there are less animations and everything else (aside from his ult) feel so much lamer');
 
 -- --------------------------------------------------------
 
