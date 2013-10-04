@@ -1,14 +1,14 @@
 <?php
-session_start();
+require 'inc/config.php';
 if (isset($_SESSION['isLogged'])) {
     header('Location: index.php');
     exit;
 }
 if (isset($_POST['register'])) {
-    $username = addslashes(trim($_POST['username']));
-    $password = ($_POST['password']);
-    $email = addslashes(trim($_POST['email']));
-    if (mb_strlen($username, 'UTF-8') < 4) {
+    $username = mysqli_real_escape_string($link, trim($_POST['username']));
+    $password = mysqli_real_escape_string($link, trim($_POST['password']));
+    $email = mysqli_real_escape_string($link, trim($_POST['email']));
+    if (mb_strlen($username, 'UTF-8') < 5) {
         $error_array['username_short'] = 'The username is too short';
     }
     if (mb_strlen($username, 'UTF-8') > 12) {
@@ -17,7 +17,7 @@ if (isset($_POST['register'])) {
     if (!preg_match('/^[a-z\d_]{4,12}$/i', $username)) {
         $error_array['username_invalid'] = 'Invalid username';
     }
-    if (mb_strlen($password, 'UTF-8') < 4) {
+    if (mb_strlen($password, 'UTF-8') < 5) {
         $error_array['password_short'] = 'The password is too short';
     }
     if (!preg_match('/^[^@]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$/', $email)) {
@@ -28,27 +28,26 @@ if (isset($_POST['register'])) {
     }
 
     if (!isset($error_array)) {
-        $usersList = file('database/users.txt');
-        for ($i = 0; $i < count($usersList); $i++) {
-            if (substr_count($usersList[$i], $username)) {
-                $error_array['user_used'] = 'Username is already used!';
-                break;
-            }
-        }
-        for ($i = 0; $i < count($usersList); $i++) {
-            if (substr_count($usersList[$i], $email)) {
-                $error_array['email_used'] = 'Email is already used!';
-                break;
-            }
+        // Database check if the username and email are free
+        $sql = 'SELECT username FROM users 
+                WHERE username="'.$username.'" OR email="'.$email.'"';
+        $result = mysqli_query($link, $sql);
+        if ($result->num_rows > 0) {
+            $error_array['username_email_Exists'] = 'The username/email is already taken!';
         }
     }
 
     if (!isset($error_array)) {
-        // There are no errors - procede to recording
-        $data = $username . '|' . md5($password) . '|' . $email . '|' . time() . PHP_EOL;
-        if (file_put_contents('database/users.txt', $data, FILE_APPEND)) {
-            mkdir('userFolders/'.$username);
-            $succreg = true;
+        // There are no more errors
+        // Record the new user to the database
+        $sql = 'INSERT INTO users (user_id, username, password, email) 
+                VALUES (NULL, "'.$username.'", "'.$password.'", "'.$email.'");';
+        if (mysqli_query($link, $sql)) {
+            $_SESSION['isLogged'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = mysqli_insert_id($link);
+            header('Location: index.php?succreg=1');
+            exit;
         }
     }
 }
@@ -69,7 +68,7 @@ require 'inc/header.php';
             <?php
             if (isset($error_array)) {
                 if (count($error_array) > 0) {
-                    echo '<tr><td colspan="2" style="color: #dd7200;">';
+                    echo '<tr><td colspan="2" style="color: #dd7200; text-align:center;">';
                     foreach ($error_array as $v) {
                         echo $v . '<br/>';
                     }
