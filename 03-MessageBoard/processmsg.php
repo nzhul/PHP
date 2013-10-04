@@ -7,8 +7,8 @@ if (!isset($_SESSION['isLogged'])) {
 }
 
 if (isset($_POST['postmsg'])) {
-    $title = mysqli_real_escape_string($link, trim($_POST['title']));
-    $content = mysqli_real_escape_string($link, trim($_POST['content']));
+    $title = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['title'])));
+    $content = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['content'])));
     $cat = (int) $_POST['cat'];
     if (mb_strlen($title, 'UTF-8') < 3) {
         $error_array['title_short'] = 'The title is too short';
@@ -52,7 +52,7 @@ if (isset($_POST['postmsg'])) {
 
 
 if (isset($_POST['postcat']) && $_SESSION['power'] == 2) {
-    $cname = mysqli_real_escape_string($link, trim($_POST['cname']));
+    $cname = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['cname'])));
     if (mb_strlen($cname, 'UTF-8') < 3) {
         $error_array['cname_short'] = 'The title is too short';
     }
