@@ -166,6 +166,10 @@ if ($result->num_rows > 0) {
             $counter--;
         }
     }
+} else {
+    echo '<table><tr><td style="color: #ffc000;">';
+    echo 'There are no messages at the moment.';
+    echo '</td></tr></table>';
 }
 ?>
 
