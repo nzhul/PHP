@@ -18,10 +18,12 @@ tr:first-child td, tr:last-child td {background: #464646;}
 .sum {font-weight: bold;color: #e0e0e0;}
 input[type="submit"] {background: #e0e0e0;border: 1px solid #949494; width: 70px; height: 30px; padding-left: 5px; color: #1c1c1c;cursor: pointer;}
 input, textarea {background: #e0e0e0;border: 1px solid #949494; width: 180px;height: 25px;padding-left: 10px; background: #282828; color: #e0e0e0; }
+#searchKey {float: right;position: relative;top: -30px;height: 22px;}
+#postSearch {float: right;position: relative;top: -30px;width: 90px;height: 25px;margin: 0 4px 0 5px;}
 textarea {height: 100px; width: 400px;padding-top: 10px;}
-#postField {display: none;}
-#postCat {display: none;}
-select {background: #e0e0e0;border: 1px solid #949494; width: 190px;height: 30px;padding-left: 10px;background: #282828; color: #e0e0e0;}
+#postBook {display: none;}
+#postAuthor {display: none;}
+select {background: #e0e0e0;border: 1px solid #949494; width: 413px;height: 80px;padding: 5px 0 0 10px;background: #282828; color: #e0e0e0;}
 /*#shadow {width: 453px; height: 81px;background: url(../img/shadow.png)no-repeat center bottom;position: relative;top: -35px;z-index: 1;}*/
 .btn {display: block;width: 15px;height: 15px; margin: 0 auto;}
 .del {background: url(../img/delete.png)no-repeat;text-indent: -9999px; height: 16px;float: right;}

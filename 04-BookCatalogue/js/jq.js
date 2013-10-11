@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    $("#addMSG").click(function() {
-        $("#postField").show();
+    $("#addBook").click(function() {
+        $("#postBook").show();
     });
-    $("#addCat").click(function() {
-        $("#postCat").show();
+    $("#addAuthor").click(function() {
+        $("#postAuthor").show();
     });
 });
