@@ -15,7 +15,7 @@ if (isset($_GET['sort'])) {
 }
 
 if (isset($_POST['postSearch'])) {
-    $key = htmlspecialchars(mysql_real_escape_string(trim($_POST['searchKey'])));
+    $key = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['searchKey'])));
     $sqlSearch = 'WHERE book_title LIKE "%' . $key . '%"';
 } else {
     $sqlSearch = '';

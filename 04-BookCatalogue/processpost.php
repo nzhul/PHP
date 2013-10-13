@@ -1,5 +1,4 @@
 <?php
-
 require 'inc/config.php';
 if (isset($_POST['postAuthor'])) {
     $author = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['authorName'])));
