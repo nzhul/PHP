@@ -1,4 +1,5 @@
 <?php
+
 require 'inc/config.php';
 if (isset($_POST['postAuthor'])) {
     $author = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['authorName'])));
@@ -25,7 +26,7 @@ if (isset($_POST['postAuthor'])) {
             header('Location: index.php?succAuthor=1');
             exit;
         } else {
-            $error_array = mysqli_error($link);
+            $error_array[] = mysqli_error($link);
             $_SESSION['msg_err_array'] = $error_array;
             header('Location: index.php?err=1');
             exit;
@@ -82,7 +83,7 @@ if (isset($_POST['postBook'])) {
                 exit;
             }
         } else {
-            $error_array = mysqli_error($link);
+            $error_array[] = mysqli_error($link);
             $_SESSION['msg_err_array'] = $error_array;
             header('Location: index.php?err=1');
             exit;
@@ -91,6 +92,47 @@ if (isset($_POST['postBook'])) {
         // send back the error_array
         $_SESSION['msg_err_array'] = $error_array;
         header('Location: index.php?err=1');
+        exit;
+    }
+}
+if (isset($_POST['postComment'])) {
+    $author = $_SESSION['user_id'];
+    $book_id = (int) $_POST['bookid'];
+    $comment = htmlspecialchars(mysqli_real_escape_string($link, trim($_POST['comment'])));
+    if (mb_strlen($comment, 'UTF-8') < 3) {
+        $error_array['comment_short'] = 'The comment is too short';
+    } else if (mb_strlen($comment, 'UTF-8') > 5000) {
+        $error_array['comment_long'] = 'The comment is too long';
+    }
+
+    if (!isset($error_array)) {
+        $sql = 'SELECT book_id FROM books WHERE book_id=' . $book_id;
+        $result = mysqli_query($link, $sql);
+        if ($result->num_rows <= 0) {
+            $error_array['bookDoesntExists'] = 'The book does not exists!';
+        }
+    }
+
+    if (!isset($error_array)) {
+        $sql = 'INSERT INTO comments (comment_id, book_id, comment, date_added, author_id) 
+                VALUES (NULL, ' . $book_id . ', "' . $comment . '", ' . time() . ', ' . $author . ')';
+        mysqli_query($link, $sql);
+        if (!mysqli_error($link)) {
+            mysqli_query($link, 'UPDATE users SET comments_count = comments_count +1 WHERE user_id=' . $author);
+            mysqli_query($link, 'UPDATE books SET comments_count = comments_count +1 WHERE book_id=' . $book_id);
+            $_SESSION['comments_count']++; 
+            header('Location: book.php?id=' . $book_id);
+            exit;
+        } else {
+            $error_array[] = mysqli_error($link);
+            $_SESSION['msg_err_array'] = $error_array;
+            header('Location: book.php?err=1');
+            exit;
+        }
+    } else {
+        // send back the error_array
+        $_SESSION['msg_err_array'] = $error_array;
+        header('Location: book.php?err=1');
         exit;
     }
 }

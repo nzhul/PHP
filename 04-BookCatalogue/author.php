@@ -26,9 +26,15 @@ if ($result->num_rows > 0) {
     </table>
     <table>
         <tr>
-            <td><span class="sum">Author Description:</span> Some information about the author that can be long about 250 characters.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pulvinar scelerisque tincidunt. In lacinia est in luctus rhoncus. Proin eu felis a purus dignissim venenatis. Sed tincidunt vestibulum lobortis. Morbi condimentum bibendum orci non volutpat. 
-            </td>
+        <td><img src="img/author.png" style="width: 300px;"/></td>
+        <td style="vertical-align: top;"><span class="sum">Information about the author:</span><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Integer sed metus fringilla, viverra justo sed, auctor est. 
+            Vestibulum aliquet, leo sit amet rutrum tincidunt, lectus dolor suscipit elit,
+            id vulputate purus quam eget dolor. Vivamus mattis nulla sit amet orci imperdiet 
+            gravida. Curabitur tincidunt nulla sapien, a gravida purus ultrices commodo. 
+            Morbi feugiat nisi sit amet purus accumsan facilisis ac malesuada magna. 
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
+            Curae; Morbi pharetra rhoncus odio id suscipit.</td>
         </tr>
     </table>
     <table>

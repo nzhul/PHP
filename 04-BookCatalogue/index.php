@@ -22,7 +22,7 @@ if (isset($_POST['postSearch'])) {
 }
 
 if (isset($_SESSION['username'])) {
-    $usernameField = '<li><a href="user.php?id=' . $_SESSION['user_id'] . '">Hello, <span style="color: #93c72e;">' . $_SESSION['username'] . '</span> ('.$_SESSION['comments_count'].')</a></li>
+    $usernameField = '<li><a href="user.php?id=' . $_SESSION['user_id'] . '">Hello, <span style="color: #93c72e;">' . $_SESSION['username'] . '</span> (' . $_SESSION['comments_count'] . ')</a></li>
         <li><a href="logout.php">Logout</a></li>';
 } else {
     $usernameField = '<li><a href="login.php">Login</a></li>';
@@ -99,6 +99,10 @@ if (isset($_GET['err']) && $_GET['err'] == 1 && isset($_SESSION['msg_err_array']
     echo '<table><tr><td style="color: #93c72e;">';
     echo 'The Author has been added!';
     echo '</td></tr></table>';
+} else if (isset($_GET['succreg'])) {
+    echo '<table><tr><td style="color: #93c72e;">';
+    echo 'Welcome to the Book Catalogue ' . $_SESSION['username'] . '!';
+    echo '</td></tr></table>';
 }
 ?>
 <table>
@@ -119,6 +123,7 @@ if (isset($_GET['err']) && $_GET['err'] == 1 && isset($_SESSION['msg_err_array']
         $reArrange = array();
         while ($row = $result->fetch_assoc()) {
             $reArrange[$row['book_id']]['book_title'] = $row['book_title'];
+            $reArrange[$row['book_id']]['comments_count'] = $row['comments_count'];
             $reArrange[$row['book_id']]['authors'][$row['author_id']] = $row['author_name'];
         }
         /* echo '<tr>
@@ -126,7 +131,8 @@ if (isset($_GET['err']) && $_GET['err'] == 1 && isset($_SESSION['msg_err_array']
           <td></td>
           </tr>'; */
         foreach ($reArrange as $key => $book) {
-            echo '<tr><td><a href="book.php?id='.$key.'">' . $book['book_title'] . '</a></td><td>';
+            echo '<tr><td><a href="book.php?id=' . $key . '">' . $book['book_title'] . '</a>
+                [<span style="color:white;">' . $book['comments_count'] . '</span>]</td><td>';
             $authorsCount = count($book['authors']);
             $commaCounter = 1;
             foreach ($book['authors'] as $key => $author) {

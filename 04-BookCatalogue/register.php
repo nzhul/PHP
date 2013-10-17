@@ -7,13 +7,13 @@ if (isset($_SESSION['isLogged'])) {
 if (isset($_POST['register'])) {
     $username = mysqli_real_escape_string($link, trim($_POST['username']));
     $password = mysqli_real_escape_string($link, trim($_POST['password']));
-    if (mb_strlen($username, 'UTF-8') < 5) {
+    if (mb_strlen($username, 'UTF-8') < 3) {
         $error_array['username_short'] = 'The username is too short';
     }
     if (mb_strlen($username, 'UTF-8') > 12) {
         $error_array['username_long'] = 'The username is too long';
     }
-    if (!preg_match('/^[a-z\d_]{4,12}$/i', $username)) {
+    if (!preg_match('/^[a-z\d_]{3,12}$/i', $username)) {
         $error_array['username_invalid'] = 'Invalid username';
     }
     if (mb_strlen($password, 'UTF-8') < 5) {
@@ -39,7 +39,8 @@ if (isset($_POST['register'])) {
             $_SESSION['isLogged'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = mysqli_insert_id($link);
-            header('Location: login.php?succreg=1');
+            $_SESSION['comments_count'] = 0;
+            header('Location: index.php?succreg=1');
             exit;
         }
     }

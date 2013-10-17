@@ -1,10 +1,9 @@
 <?php
+require 'inc/config.php';
 if (isset($_SESSION['isLogged'])) {
     header('Location: index.php');
     exit;
 }
-require 'inc/config.php';
-
 if (isset($_POST['login'])) {
     $username = addslashes(trim($_POST['username']));
     $password = addslashes(trim($_POST['password']));
@@ -20,7 +19,7 @@ if (isset($_POST['login'])) {
     }
 
     if (!isset($error_array)) {
-        $sql = 'SELECT * FROM users WHERE username="'.$username.'" AND password="'.$password.'"';
+        $sql = 'SELECT * FROM users WHERE username="' . $username . '" AND password="' . $password . '"';
         $result = mysqli_query($link, $sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -30,9 +29,7 @@ if (isset($_POST['login'])) {
             $_SESSION['isLogged'] = true;
             header('Location: index.php');
             exit;
-        }
-        else
-        {
+        } else {
             $error_array['no_such_user'] = 'Wrong username/password!';
         }
     }
