@@ -6,7 +6,7 @@ if (!isset($_GET['id']) || !((int) $_GET['id'] > 0)) {
 require 'inc/config.php';
 require 'inc/header.php';
 ?>
-<div id="navigation">
+<div class="navigation">
     <ul id="menu">
         <li><a href="index.php">Books List</a></li>
         </li>

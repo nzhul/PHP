@@ -20,13 +20,24 @@ if (isset($_POST['postSearch'])) {
 } else {
     $sqlSearch = '';
 }
+
+if (isset($_SESSION['username'])) {
+    $usernameField = '<li><a href="user.php?id=' . $_SESSION['user_id'] . '">Hello, <span style="color: #93c72e;">' . $_SESSION['username'] . '</span> ('.$_SESSION['comments_count'].')</a></li>
+        <li><a href="logout.php">Logout</a></li>';
+} else {
+    $usernameField = '<li><a href="login.php">Login</a></li>';
+}
 ?>
-<div id="navigation">
+<div class="navigation" style="margin: 0 0 10px 0px;">
+    <ul id="menu" style="text-align: right;">
+        <?= $usernameField; ?>
+    </ul>
+</div>
+<div class="navigation">
     <ul id="menu">
         <li><a href="#" id="addBook">Add Book</a></li>
         <li><a href="#" id="addAuthor">Add Author</a></li>
-        <li><a href="index.php?sort=<?= $sortFix ?>">Sort</a>
-        </li>
+        <li><a href="index.php?sort=<?= $sortFix ?>">Sort</a></li>
     </ul>
     <form action="index.php" method="POST">
         <input type="submit" name="postSearch" value="Search Book" id="postSearch"/>
@@ -114,8 +125,8 @@ if (isset($_GET['err']) && $_GET['err'] == 1 && isset($_SESSION['msg_err_array']
           <td><pre>'.print_r($reArrange, true).'</pre></td>
           <td></td>
           </tr>'; */
-        foreach ($reArrange as $book) {
-            echo '<tr><td>' . $book['book_title'] . '</td><td>';
+        foreach ($reArrange as $key => $book) {
+            echo '<tr><td><a href="book.php?id='.$key.'">' . $book['book_title'] . '</a></td><td>';
             $authorsCount = count($book['authors']);
             $commaCounter = 1;
             foreach ($book['authors'] as $key => $author) {
