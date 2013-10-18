@@ -43,17 +43,15 @@ if ($result->num_rows > 0) {
             <td class="sum">Authors</td>
         </tr>
         <?php
-        $sql = 'SELECT * FROM books 
-            LEFT JOIN books_authors 
-            ON books.book_id = books_authors.book_id
-            LEFT JOIN authors 
-            ON books_authors.author_id = authors.author_id
-            WHERE books.book_title in (SELECT books.book_title
-            FROM books
-            LEFT JOIN books_authors ON books.book_id = books_authors.book_id
-            LEFT JOIN authors ON authors.author_id = books_authors.author_id
-            WHERE authors.author_id='.$_GET['id'].')    
-            ORDER BY book_title';
+        $sql = 'SELECT b.book_id, a.author_id, b.book_title, b.comments_count, a.author_name FROM books_authors as ba
+                INNER JOIN books as b
+                ON ba.book_id = b.book_id
+                INNER JOIN books_authors as bba
+                ON bba.book_id = ba.book_id
+                INNER JOIN authors as a
+                ON bba.author_id = a.author_id
+                WHERE ba.author_id ='.$_GET['id'].'    
+                ORDER BY book_title';
         $result = mysqli_query($link, $sql);
         if ($result->num_rows > 0) {
             $reArrange = array();
