@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2013 at 02:51 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Generation Time: Oct 18, 2013 at 06:58 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `books`
 --
-CREATE DATABASE `books` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `books` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `books`;
 
 -- --------------------------------------------------------
@@ -53,6 +53,7 @@ INSERT INTO `authors` (`author_id`, `author_name`) VALUES
 CREATE TABLE IF NOT EXISTS `books` (
   `book_id` int(11) NOT NULL AUTO_INCREMENT,
   `book_title` varchar(250) NOT NULL,
+  `comments_count` int(11) NOT NULL,
   PRIMARY KEY (`book_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
@@ -60,11 +61,11 @@ CREATE TABLE IF NOT EXISTS `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `book_title`) VALUES
-(1, 'The Dark Tower: The Gunslinger'),
-(2, 'Song of Ice and Fire'),
-(3, 'Great Expectations'),
-(4, 'The Color of Magic');
+INSERT INTO `books` (`book_id`, `book_title`, `comments_count`) VALUES
+(1, 'The Dark Tower: The Gunslinger', 0),
+(2, 'Song of Ice and Fire', 2),
+(3, 'Great Expectations', 3),
+(4, 'The Color of Magic', 0);
 
 -- --------------------------------------------------------
 
@@ -94,6 +95,33 @@ INSERT INTO `books_authors` (`book_id`, `author_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `date_added` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `book_id` (`book_id`,`date_added`,`author_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `book_id`, `comment`, `date_added`, `author_id`) VALUES
+(1, 3, 'Коментар баце', 1382033395, 1),
+(2, 3, '&lt;html', 1382033849, 1),
+(4, 3, 'Коментар от Гошо!', 1382038368, 3),
+(5, 2, 'First comment on Song of Ice and Fire from Gosho', 1382038891, 3),
+(6, 2, 'Много добра екранизация са направили признавам им го!', 1382041356, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -103,14 +131,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL,
   `comments_count` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `comments_count`) VALUES
-(1, 'nzhul', '123456', 0);
+(1, 'nzhul', '123456', 2),
+(3, 'gosho', '123456', 2),
+(4, 'jonkata', '123456', 1),
+(5, 'user', 'qwerty', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
