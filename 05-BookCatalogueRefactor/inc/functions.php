@@ -68,4 +68,18 @@ function getAuthorsOfBook($link) {
     }
 }
 
+function getComments($link, $bookID) {
+    $sql = 'SELECT * FROM comments
+        LEFT JOIN users
+        ON comments.author_id = users.user_id
+        WHERE book_id=' . (int) $bookID;
+    $result = mysqli_query($link, $sql);
+    if ($result->num_rows > 0) {
+        return $result;
+    } else {
+        $result = 0;
+        return $result;
+    }
+}
+
 ?>

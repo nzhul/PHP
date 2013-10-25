@@ -28,29 +28,10 @@ if (isset($_SESSION['username'])) {
 } else {
     $usernameField = '<li><a href="login.php">Login</a></li>';
 }
-?>
-
-<?php 
 include './templates/userRow.php';
 include './templates/navigation.php';
-include 'templates/bookForm.php';
-include 'templates/authorForm.php';
+include './templates/bookForm.php';
+include './templates/authorForm.php';
 errorDisplay();
-?>
-<table>
-    <tr>
-        <td class="sum">Book</td>
-        <td class="sum">Authors</td>
-    </tr>
-    <?php
-    $data = getBooksAndAuthors($link, $sqlSearch, $sqlSearch);
-    include 'templates/books_table.php';
-    ?>
-    <tr>
-        <td class="sum">Book</td>
-        <td class="sum">Authors</td>
-    </tr>
-</table>
-<?php
+include './templates/booksTable.php';
 include 'inc/footer.php';
-?>

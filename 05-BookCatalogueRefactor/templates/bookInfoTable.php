@@ -1,4 +1,3 @@
-<h1>TODO! - до тук съм стигнал! - 25.10.2013</h1>
 <table>
     <tr>
         <td colspan="2"><span class="sum"><?= $row['book_title'] . ' [' . $row['comments_count'] . ']' ?></span></td>

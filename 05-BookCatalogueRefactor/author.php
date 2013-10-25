@@ -5,6 +5,14 @@ if (!isset($_GET['id']) || !((int) $_GET['id'] > 0)) {
 }
 require 'inc/config.php';
 require 'inc/header.php';
+if (isset($_SESSION['username'])) {
+    $usernameField = '<li><a href="user.php?id=' . $_SESSION['user_id'] . '">Hello, <span style="color: #93c72e;">
+    ' . $_SESSION['username'] . '</span> (' . $_SESSION['comments_count'] . ')</a></li>
+        <li><a href="logout.php">Logout</a></li>';
+} else {
+    $usernameField = '<li><a href="login.php">Login</a></li>';
+}
+include './templates/userRow.php';
 ?>
 <div class="navigation">
     <ul id="menu">
@@ -26,15 +34,15 @@ if ($result->num_rows > 0) {
     </table>
     <table>
         <tr>
-        <td><img src="img/author.png" style="width: 300px;"/></td>
-        <td style="vertical-align: top;"><span class="sum">Information about the author:</span><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Integer sed metus fringilla, viverra justo sed, auctor est. 
-            Vestibulum aliquet, leo sit amet rutrum tincidunt, lectus dolor suscipit elit,
-            id vulputate purus quam eget dolor. Vivamus mattis nulla sit amet orci imperdiet 
-            gravida. Curabitur tincidunt nulla sapien, a gravida purus ultrices commodo. 
-            Morbi feugiat nisi sit amet purus accumsan facilisis ac malesuada magna. 
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
-            Curae; Morbi pharetra rhoncus odio id suscipit.</td>
+            <td><img src="img/author.png" style="width: 300px;"/></td>
+            <td style="vertical-align: top;"><span class="sum">Information about the author:</span><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Integer sed metus fringilla, viverra justo sed, auctor est. 
+                Vestibulum aliquet, leo sit amet rutrum tincidunt, lectus dolor suscipit elit,
+                id vulputate purus quam eget dolor. Vivamus mattis nulla sit amet orci imperdiet 
+                gravida. Curabitur tincidunt nulla sapien, a gravida purus ultrices commodo. 
+                Morbi feugiat nisi sit amet purus accumsan facilisis ac malesuada magna. 
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
+                Curae; Morbi pharetra rhoncus odio id suscipit.</td>
         </tr>
     </table>
     <table>
@@ -50,7 +58,7 @@ if ($result->num_rows > 0) {
                 ON bba.book_id = ba.book_id
                 INNER JOIN authors as a
                 ON bba.author_id = a.author_id
-                WHERE ba.author_id ='.$_GET['id'].'    
+                WHERE ba.author_id =' . $_GET['id'] . '    
                 ORDER BY book_title';
         $result = mysqli_query($link, $sql);
         if ($result->num_rows > 0) {
