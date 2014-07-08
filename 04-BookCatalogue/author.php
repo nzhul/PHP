@@ -9,7 +9,6 @@ require 'inc/header.php';
 <div class="navigation">
     <ul id="menu">
         <li><a href="index.php">Books List</a></li>
-        </li>
     </ul>
 </div>
 <?php
