@@ -4,9 +4,9 @@ if (isset($_SESSION['isLogged'])) {
     header('Location: index.php');
     exit;
 }
-if (isset($_POST['login'])) {
-    $username = addslashes(trim($_POST['username']));
-    $password = addslashes(trim($_POST['password']));
+if (isset($_POST['login'], $_POST['username'], $_POST['password'])) {
+    $username = mysqli_real_escape_string(trim($_POST['username']));
+    $password = mysqli_real_escape_string(trim($_POST['password']));
 
     if (mb_strlen($username, 'UTF-8') < 5) {
         $error_array['username_short'] = 'The username is too short';
