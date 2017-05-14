@@ -1,0 +1,40 @@
+/* 
+    Document   : styleOrange
+    Created on : 2014-3-10, 13:12:50
+    Author     : kakadu5
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#topline, .slide p a.readMore, .circle {background: #f2782f;}
+#bigQuote span:first-child, .featureBox h2, .featureBox h4, .featureBox ul li a, #generalWrapper h2, .contactBox a  {color: #f2782f;}
+.serviceBox {height: 320px;}
+#map {border: 5px solid #f2782f;}
+.formField {background: #fad8b5;}
+.formField textarea {width: 500px;height: 685px;position: relative;top:-15px;border: 1px solid #424952;padding: 5px;}
+#A7Label {position: relative;top: -20px;}
+.adminWrapper .formField input[type= text] {width: 450px;}
+#FleetRequestBtn {
+background: #f38434; /* Old browsers */
+background: -moz-linear-gradient(top,  #f38434 0%, #f16e2b 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f38434), color-stop(100%,#f16e2b)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f38434 0%,#f16e2b 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f38434 0%,#f16e2b 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f38434 0%,#f16e2b 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f38434 0%,#f16e2b 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f38434', endColorstr='#f16e2b',GradientType=0 ); /* IE6-9 */
+}
+#FleetRequestBtn:hover {
+background: #f3a734; /* Old browsers */
+background: -moz-linear-gradient(top,  #f3a734 0%, #f1952b 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3a734), color-stop(100%,#f1952b)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f3a734 0%,#f1952b 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f3a734 0%,#f1952b 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f3a734 0%,#f1952b 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f3a734 0%,#f1952b 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3a734', endColorstr='#f1952b',GradientType=0 ); /* IE6-9 */
+}
+
+.skdslider ul.slide-navs li.current-slide {
+    background: url("../img/slider/slide-bg-active-orange.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
+}

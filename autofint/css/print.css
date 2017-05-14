@@ -1,0 +1,24 @@
+/* 
+    Document   : print
+    Created on : 2014-3-7, 13:36:27
+    Author     : kakadu5
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#adm_navigation {display: none;}
+#logo_box {display: none;}
+.formField {width: 1000px;}
+.formField table {width: 96%;}
+.formField table input {height: 30px;margin: 0 0 0px 0px;font-size: 12px;font-style: italic;}
+.formField table input:last-child {margin: 0 0 10px 0px;}
+input[type=submit],input[type=button] {display: none;}
+.formField textarea {width: 450px;position: relative;left: -10px;height: 350px;}
+
+.printWrapper .formField table td {font-size: 10px!important;height: 10px;padding-top: 0px;padding-bottom: 0px;margin-top: 0px;margin-bottom: 0px;}
+.printWrapper input[type = text] {height: 15px!important;margin-top: 0px;margin-bottom: 0px;padding-top: 0px;padding-bottom: 0px;}
+.printWrapper h2 {font-size: 14px;}
+.printWrapper .formField {min-height: 20px;}
+.printWrapper .formField p {margin-top: 0px!important;height: 45px;}
+.printWrapper p {font-size: 12px!important;margin-top: 0px;margin-bottom: 0px;}
+.printWrapper #printSignature {display: block;}
