@@ -1,0 +1,13 @@
+gmail:
+user: skyhousebg@gmail.com
+pass: skypassword@
+
+facebook:
+user: skyhousebg@gmail.com
+pass: skypassword@
+
+twitter:
+user: skyhousebg@gmail.com
+pass: skypassword@
+
+
