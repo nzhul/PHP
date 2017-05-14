@@ -1,0 +1,60 @@
+* {text-align: left;}
+body {text-align: center;margin:0px;}
+img {border: 0;}
+
+#nav_underline {overflow: hidden;}
+
+.index_big_title {padding: 0 0 0 60px;margin: 20px 0 0 30px;color: #002e6e;
+background-image: url(../img/big_bullet.jpg);
+background-repeat: no-repeat;
+background-position: center left;
+}
+
+.nav_btn {display: block;float:left;height: 53px;padding: 0 21px 0 20px;line-height: 53px;color: white;
+background-image: url(../img/dotted_vert_nav_divider.jpg);
+background-repeat: no-repeat; 
+background-position: center right;}
+
+#dotted_vert_blue_divider {display: block;width: 1px;height: 95px;float:left;position: relative;left:531px;top: 135px;
+background-image: url(../img/dotted_vert_blue_divider.jpg);
+background-repeat: no-repeat;}
+
+#footer {width:1065px;height: 100px;margin: 0 0 0px 0px;color: white;text-align: center;padding: 60px 0 0 350px;
+background-image: url(../img/footer.png);
+background-repeat: no-repeat;}
+
+.cat1 {background-color: white;background-image: url(../img/menu_sprite.jpg);background-repeat: no-repeat;background-position:  0px 0px;}/*салати*/
+.cat2 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -644px 0px;}/*студени предястия*/
+.cat3 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1288px 0px;}/*студени предястия*/
+.cat4 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1932px 0px;}/*студени предястия*/
+.cat5 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: 0px -206px;}/*студени предястия*/
+.cat6 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -644px -206px;}/*студени предястия*/
+.cat7 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1288px -206px;}/*студени предястия*/
+.cat8 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1932px -206px;}/*студени предястия*/
+.cat9 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: 0px -412px;}/*студени предястия*/
+.cat10 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -644px -412px;}/*студени предястия*/
+.cat11 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1288px -412px;}/*студени предястия*/
+.cat12 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1932px -412px;}/*студени предястия*/
+.cat13 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: 0px -618px;}/*студени предястия*/
+.cat14 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -644px -618px;}/*студени предястия*/
+.cat15 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1288px -618px;}/*студени предястия*/
+.cat16 {background-image: url(../img/menu_sprite.jpg);background-repeat:no-repeat;background-position: -1932px -618px;}/*студени предястия*/
+
+
+.ket_cat1 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: 0px 0px;}/*салати*/
+.ket_cat2 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: -644px 0px;}/*студени предястия*/
+.ket_cat3 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: 0px -206px;}/*студени предястия*/
+.ket_cat4 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: -644px -206px;}/*студени предястия*/
+.ket_cat5 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: 0px -412px;}/*студени предястия*/
+.ket_cat6 {background-image: url(../img/menu_ketering_sprite.jpg);background-repeat:no-repeat;background-position: -644px -412px;}/*студени предястия*/
+
+.circle{
+    background-image: url(../img/circle_bg.jpg);
+}
+.hover_list_box h3 {font-size: 45px;}
+
+.hover_item {display: block; height: 30px;padding: 0 0 0 50px;font-size: 25px;margin: 0px 0 10px 80px;font-family:'Conv_MyriadPro-Light',Sans-Serif;
+background-image: url(../img/small_bullet.jpg);
+background-repeat:no-repeat;
+background-position: center left;}
+.hover_item:hover {text-decoration: underline;}

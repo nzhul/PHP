@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Conv_MyriadPro-Light';
+	src: url('../fonts/MyriadPro-Light.eot');
+	src: local('☺'), url('../fonts/MyriadPro-Light.woff') format('woff'), url('../fonts/MyriadPro-Light.ttf') format('truetype'), url('../fonts/MyriadPro-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_Vera Crouz';
+	src: url('../fonts/Vera Crouz.eot');
+	src: local('☺'), url('../fonts/Vera Crouz.woff') format('woff'), url('../fonts/Vera Crouz.ttf') format('truetype'), url('../fonts/Vera Crouz.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.vera_cruz {font-family:'Conv_Vera Crouz',Sans-Serif;color: #002e6e;}
+
+body {background: #002e6e; color: #2d2d2d;font-size: 14px;font-family:Tahoma,Sans-Serif;}
+h1,h2,h3,h4,h5,h6 {font-weight: normal;}
+h1 {font-size: 55px;}
+h1 a {color: white;}
+h2 {font-size: 60px;float:left;margin: 0 0 0 0px;font-family:'Conv_Vera Crouz',Sans-Serif;}
+h3 {font-size: 50px;float:left;margin: 0 0 0 0px;font-family:'Conv_MyriadPro-Light',Sans-Serif;}
+h4 {font-size: 16px;margin: 25px 0 0 0px;font-weight: bold;color: #d82427;}
+h5 {font-size: 14px;margin: 0 0 0 0px;}
+a {color: white; text-decoration: none;}
+a:hover {color: white; text-decoration: underline;}
+
+#super_wrapper {width: 1065px;margin: 0px auto;height: 900px;}
+
+/*HEADER*/
+#logo_box {height: 120px;margin: 33px 0 0 0px;}
+/*HEADER END*/
+
+/*NAVIGATION*/
+#navigation {background: #002e6e;height: 53px;font-size: 16px;font-family: Tahoma;}
+#navigation a:hover {text-decoration: none;}
+.nav_btn {display: block;float:left;height: 53px;padding: 0 21px 0 20px;line-height: 53px;color: white;background: url(../img/dotted_vert_nav_divider.jpg)no-repeat center right;}
+.active_nav_btn {background-color: #d82427;}
+.nav_btn:hover {background-color: #d82427;}
+#nav_underline {background-color: #d82427;height: 3px;}
+/*NAVIGATION END*/
+
+/*INDEX CONTENT*/
+#index_white_field {min-height: 643px;background-color: white;}
+#index_left_img_field {width: 531px;}
+#left_hover-menu {width: 531px;height: 387px;background-color: #d82427;color: white;display:none;float: left;position: absolute;z-index: 2000;}
+#right_hover-menu {width: 533px;height: 387px;background-color: #d82427;color: white;display:none;float: right;position: absolute;z-index: 2000;margin: 0 0px 0 0px;}
+#left_hover-menu a, #right_hover-menu a {color:white;}
+#left-pic {display: block;float: left;position: absolute;z-index: 1;}
+#right-pic {display: block;float: right;position: absolute;z-index: 1;}
+.hover_list_box {display: block;float:left;width: 400px;margin: 100px 0 0 100px;}
+.hover_item {display: block; height: 30px;padding: 0 0 0 50px;font-size: 25px;background: url(../img/small_bullet.jpg)no-repeat center left;margin: 0px 0 10px 80px;font-family:'Conv_MyriadPro-Light',Sans-Serif;}
+.hover_item:hover {text-decoration: underline;}
+.index_info_field {clear: both;height: 250px;width: 532px;float:left;position: relative;top:380px;margin: 0 0 0 0px;}
+.index_big_title {padding: 0 0 0 60px;background: url(../img/big_bullet.jpg)no-repeat center left;margin: 20px 0 0 30px;color: #002e6e;}
+p.index_desc {float: left;font-style: italic;font-size:11px;color: #9e9f9f;width: 400px;margin: 0 0 0 90px;}
+p.index_reserv {float: left;font-size:24px;color: #002e6e;width: 400px;margin: 15px 0 0 90px;font-family:'Conv_MyriadPro-Light',Sans-Serif;}
+
+    /*RIGHT SIDE - KETERING*/
+    #index_right_img_field {height: 387px;width: 533px;float:right;margin: 0 0px 0 0px;}
+    /*RIGHT SIDE - KETERING END*/
+
+    #dotted_vert_blue_divider {display: block;width: 1px;height: 95px;background: url(../img/dotted_vert_blue_divider.jpg)no-repeat;float:left;position: relative;left:531px;}
+/*INDEX CONTENT END*/
+
+
+/*FOOTER*/
+#footer {width:1065px;height: 100px;background: url(../img/footer.png)no-repeat;margin: 0 0 0px 0px;color: white;text-align: center;padding: 60px 0 0 0px;}
+/*FOOTER END*/
+
+
+/*MENU*/
+#menu_container {width: 644px;margin: 20px 0 0 20px;float: left;}
+.cat_btn {background: #bfdaff;cursor: pointer;width: 644px;height: 103px;margin: 0 0 10px 0px;float: left;}
+.cat_btn p,.cat_btn h3 {float:left;clear: both;color: #002e6e;}
+.cat_btn p {margin: -5px 0 0 36px;font-size: 12px;}
+.cat_btn h3.menu_title {font-family:'Conv_Vera Crouz',Sans-Serif;margin: 17px 0 0 36px;}
+.menu_title span {font-family: Tahoma;font-size: 20px;}
+.menu_title .plus-minus-sign {color:#d82427;}
+
+.cat1 {background: url(../img/menu_sprite.jpg)no-repeat 0px 0px;}/*салати*/
+.cat1:hover {background-position: 0px -103px;}
+.cat2 {background: url(../img/menu_sprite.jpg)no-repeat -644px 0px;}/*студени предястия*/
+.cat2:hover {background-position: -644px -103px;}
+.cat3 {background: url(../img/menu_sprite.jpg)no-repeat -1288px 0px;}/*студени предястия*/
+.cat3:hover {background-position: -1288px -103px;}
+.cat4 {background: url(../img/menu_sprite.jpg)no-repeat -1932px 0px;}/*студени предястия*/
+.cat4:hover {background-position: -1932px -103px;}
+.cat5 {background: url(../img/menu_sprite.jpg)no-repeat 0px -206px;}/*студени предястия*/
+.cat5:hover {background-position: 0px -309px;}
+.cat6 {background: url(../img/menu_sprite.jpg)no-repeat -644px -206px;}/*студени предястия*/
+.cat6:hover {background-position: -644px -309px;}
+.cat7 {background: url(../img/menu_sprite.jpg)no-repeat -1288px -206px;}/*студени предястия*/
+.cat7:hover {background-position: -1288px -309px;}
+.cat8 {background: url(../img/menu_sprite.jpg)no-repeat -1932px -206px;}/*студени предястия*/
+.cat8:hover {background-position: -1932px -309px;}
+.cat9 {background: url(../img/menu_sprite.jpg)no-repeat 0px -412px;}/*студени предястия*/
+.cat9:hover {background-position: 0px -515px;}
+.cat10 {background: url(../img/menu_sprite.jpg)no-repeat -644px -412px;}/*студени предястия*/
+.cat10:hover {background-position: -644px -515px;}
+.cat11 {background: url(../img/menu_sprite.jpg)no-repeat -1288px -412px;}/*студени предястия*/
+.cat11:hover {background-position: -1288px -515px;}
+.cat12 {background: url(../img/menu_sprite.jpg)no-repeat -1932px -412px;}/*студени предястия*/
+.cat12:hover {background-position: -1932px -515px;}
+.cat13 {background: url(../img/menu_sprite.jpg)no-repeat 0px -618px;}/*студени предястия*/
+.cat13:hover {background-position: 0px -721px;}
+.cat14 {background: url(../img/menu_sprite.jpg)no-repeat -644px -618px;}/*студени предястия*/
+.cat14:hover {background-position: -644px -721px;}
+.cat15 {background: url(../img/menu_sprite.jpg)no-repeat -1288px -618px;}/*студени предястия*/
+.cat15:hover {background-position: -1288px -721px;}
+.cat16 {background: url(../img/menu_sprite.jpg)no-repeat -1932px -618px;}/*студени предястия*/
+.cat16:hover {background-position: -1932px -721px;}
+
+
+.ket_cat1 {background: url(../img/menu_ketering_sprite.jpg)no-repeat 0px 0px;}/*салати*/
+.ket_cat1:hover {background-position: 0px -103px;}
+.ket_cat2 {background: url(../img/menu_ketering_sprite.jpg)no-repeat -644px 0px;}/*студени предястия*/
+.ket_cat2:hover {background-position: -644px -103px;}
+.ket_cat3 {background: url(../img/menu_ketering_sprite.jpg)no-repeat 0px -206px;}/*студени предястия*/
+.ket_cat3:hover {background-position: 0px -309px;}
+.ket_cat4 {background: url(../img/menu_ketering_sprite.jpg)no-repeat -644px -206px;}/*студени предястия*/
+.ket_cat4:hover {background-position: -644px -309px;}
+.ket_cat5 {background: url(../img/menu_ketering_sprite.jpg)no-repeat 0px -412px;}/*студени предястия*/
+.ket_cat5:hover {background-position: 0px -515px;}
+.ket_cat6 {background: url(../img/menu_ketering_sprite.jpg)no-repeat -644px -412px;}/*студени предястия*/
+.ket_cat6:hover {background-position: -644px -515px;}
+
+
+.products_list_box {height: auto;margin: 0 0 20px 0px;float: left;display: none;width: 644px;}
+.product_row {min-height: 18px;width: 290px;text-transform: uppercase;font-size: 12px;vertical-align: top;margin: 5px 0 0 20px;
+              padding: 8px 0 8px 0px;color:#002e6e; background: url(../img/blue_dotted_underline.gif) no-repeat center bottom;float:left;font-size: 12px;}
+.weight {float:right;margin: 0 0 0 0px;display: block;height: 15px;width: 25px;}
+.price {float: right;margin: 0 0 0 0px;display: block;height: 15px;width: 45px;text-align: right;}
+
+
+#menu_right_column {
+    height: 800px;width: 339px;float: left;margin: 0 0 0 30px;
+}
+#menu_right_column p {font-size: 12px;color: #002e6e;}
+.circle {
+	border-radius: 50%;width: 84px;height: 84px;text-align: center;line-height: 84px;background-color: #bfdaff;
+        font-family:'Conv_Vera Crouz',Sans-Serif;color: #002e6e;font-size: 75px;float: left;margin: 40px 0 0 0px;
+	/* width and height can be anything, as long as they're equal */
+}
+
+.ket_pic_link {display: block;float: left;background: orange;height: 20px;width: 20px;margin: 0 5px 0px 0px;position: relative;top:-4px;padding: 0 0 0 0px;border: 1px solid #7ba2d9;overflow: hidden;
+-webkit-box-shadow: 1px 2px 0px rgba(0, 46, 110, 0.7);
+-moz-box-shadow:    1px 2px 0px rgba(0, 46, 110, 0.7);
+box-shadow:         1px 2px 0px rgba(0, 46, 110, 0.7);}
+/*MENU END*/
+
+
+/*GALLERY*/
+.gallery_thumb {width: 224px;margin: 0 0 0 0px;float: left;}
+.gallery_lightbox_link {width: 224px;height: 168px;overflow: hidden;display: block;border: 6px solid white;float: left;
+-webkit-box-shadow: 0px 1px 8px rgba(0, 46, 110, 0.7);
+-moz-box-shadow:    0px 1px 8px rgba(0, 46, 110, 0.7);
+box-shadow:         0px 1px 8px rgba(0, 46, 110, 0.7);}
+.thumb_box {width: 236px;float: left; margin: 20px 0 0 20px;}
+.thumb_box p { text-transform: uppercase;float: left;margin: 0 0 0 0px;padding: 10px 0 0 0px;width: 236px;text-align: center;color: #002e6e;}
+
+.pag_btn {height: 30px;width: 30px;background: #002e6e;display: block;float: left;color: white;text-align: center;line-height: 30px;margin: 0 0 0 10px;}
+.pag_btn:hover {background: #d82427;}
+/*GALLERY END*/
+
+/*CONTACT*/
+#map {border: 6px solid #d82427;
+-webkit-box-shadow: 0px 1px 8px rgba(0, 46, 110, 0.7);
+-moz-box-shadow:    0px 1px 8px rgba(0, 46, 110, 0.7);
+box-shadow:         0px 1px 8px rgba(0, 46, 110, 0.7);
+}
+/*CONTACT END*/
+
+/*KETERING PAGE*/
+#ketering_box a {color: red;}
+/*KETERING PAGE END*/
