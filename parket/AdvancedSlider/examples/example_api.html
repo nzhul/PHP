@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Advanced Slider</title>
+
+<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="advanced-slider.css" media="screen"/>
+
+<script type="text/javascript" src="jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="jquery.advancedSlider.min.js"></script>
+<!--[if IE]><script type="text/javascript" src="excanvas.compiled.js"></script><![endif]-->
+
+<script type="text/javascript">
+	
+	var slider;
+	
+	$(document).ready(function() {
+		slider = $('.slider').advancedSlider({width:750, height:345, slideshow:false, slideProperties:{0:{captionSize:'35'}, 1:{captionSize:'35'}, 3:{captionSize:'45'}, 5:{captionPosition:'left', captionSize:'150'}},
+									 		  transitionComplete:onTransitionComplete});
+	});
+	
+	
+	function previous() {
+		slider.previousSlide();
+	}	
+	
+	function next() {
+		slider.nextSlide();
+	}	
+	
+	function onTransitionComplete(obj) {
+		console.log(obj.type, obj.index, obj.data);
+	}
+	
+</script>
+
+</head>
+
+<body>
+	
+    <div class="slider">
+    	<div>
+    		<img src="http://bqworks.com/products/advanced-slider/images/image1.jpg"/>
+    		<img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image1.jpg"/>
+			<div class="caption">This is just a simple caption.</div>
+      </div>
+        
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image2.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image2.jpg"/>
+			<div class="caption">You can set the caption's position to left, right, top or bottom.</div>
+      </div>
+        
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image3.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image3.jpg"/>
+      </div>
+        
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image4.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image4.jpg"/>
+			<div class="caption">You can also add <b>HTML</b> elements like <a href="http://codecanyon.net">links</a> or <input type="button" value="Buttons"/></div>
+      </div>
+        
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image5.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image5.jpg"/>
+      </div>
+    
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image6.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image6.jpg"/>
+			<div class="caption"><u>Title</u><br/><br/>This is a list of items:<ul><li>first item</li><li>second item</li><li>third item</li></ul></div>
+      </div>
+    
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image7.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image7.jpg"/>
+      </div>
+    
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image8.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image8.jpg"/>
+      </div>
+        
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image9.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image9.jpg"/>
+      </div>
+    
+        <div>
+            <img src="http://bqworks.com/products/advanced-slider/images/image10.jpg"/>
+            <img class="thumbnail" src="http://bqworks.com/products/advanced-slider/thumbnails/image10.jpg"/>
+        </div>
+    </div>
+    
+    <div id="custom_controls">
+        <input type="button" value="Previous Slide" onclick="previous();"/>
+        <input type="button" value="Next Slide" onclick="next();"/>
+    </div>
+</body>
+
+</html>

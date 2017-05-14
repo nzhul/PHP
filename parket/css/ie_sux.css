@@ -1,0 +1,52 @@
+* {text-align: left;}
+body {text-align: center;margin:0px;}
+img {border: 0;}
+
+#search #keyword {height: 28px;width: 149px;border: 0;padding-left: 5px;margin: 0px 0 0 0px;}
+#search #search_submit {height: 28px;width: 69px;border: 0;background: white; font-family: Impact;font-size:16px;color:white;text-shadow: 1px 1px 0px #81520a;position:relative;top:0px;padding: 0 0 0 10px;
+background: #fdb804; /* Old browsers */
+background: -moz-linear-gradient(top,  #fdb804 0%, #fb9402 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdb804), color-stop(100%,#fb9402)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fdb804 0%,#fb9402 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdb804', endColorstr='#fb9402',GradientType=0 ); /* IE6-9 */
+}
+
+#product_navigation {position: relative;left: 20px;}
+.product_box {}
+.overlay_trigger_link {display: block;position: relative;z-index: 120;top: 0px;}
+.product_frame {display: block;position: relative;z-index: 12;}
+.product_thumb {display: block;position:relative;z-index:10;}
+.product_thumb img {display: block;position: relative;z-index: 11;}
+.product_title {display: block;position: relative;top:0px;}
+
+.slide,#welcome_box {position: relative;left:20px;}
+
+.sf-sub-indicator {display: none;}
+
+.overlay_product_title {margin: 0px 0 10px 30px;}
+.overlay_pic_column {margin: 0 0 0 20px;}
+.overlay_info_column {float: left;margin: 0px 0 10px 30px;}
+.info_table {margin: 0 0 0 10px;}
+
+.footer_col {margin: 10px 0 0 20px;width: 220px;}
+
+#final_footer {position: absolute;}
+
+#kakadu_row {position: relative;top:-40px;}
+
+.caption_text {margin: 0 0px 0 0px;position: relative;top:0px;left: -280px;float: right;}
+
+.sf-menu a:hover, .sf-menu a:active,.active_nav_btn {background: #fdb804; /* Old browsers */}
+#navigation {height: 53px;overflow: hidden;}
+
+.desc_box {width: 765px;}
+.path_box {width: 765px;}
+
+#welcome_box {position: relative;top:0px;left:20px;clear: both;}
+
+.caption-background {margin: 0 0 0 20px;}
+.small_text {margin: 86px 0 0 -76px;}
+.caption_price {padding: 5px 0 0 25px;margin: -40px 0 0 750px;}

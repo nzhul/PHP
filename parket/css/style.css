@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* 
+    Document   : style
+    Created on : 2012-7-4, 10:00:13
+    Author     : Добромир Николов Иванов - nzhul
+    Description:active
+
+    Color sheet:active
+        white - most of the titles
+        #2d2d2d - black(almost) [most of the titles]
+        #676767 - dark gray - for most of the sub titles
+        #fca503 - accent [yellow/orange]
+*/
+
+body {background: black; color: #2d2d2d; font-family: Tahoma;font-size: 14px;}
+h1,h2,h3,h4,h5,h6 {font-family: Impact;font-weight: normal;}
+h1 {font-size: 55px;}
+h1 a {color: white;}
+h3 {font-size: 30px;float:left;margin: 0 0 0 0px;}
+h4 {font-size: 20px;margin: 0 0 0 0px;}
+h5 {font-size: 14px;margin: 0 0 0 0px;}
+a {color: #676767; text-decoration: none;}
+a:hover {text-decoration: underline;}
+#super_wrapper {width: 1065px;margin: 0 auto;height: auto;}
+
+/*HEADER*/
+#logo_box {height: 120px;margin: 33px 0 0 0px;}
+/*HEADER END*/
+
+#content_wrapper {height: auto;background:white;}
+
+/*NAVIGATION*/
+#navigation {width: auto;height: 53px; background: #2d2d2d; border-bottom: 0;border-left: 0;margin: -5px 0 20px 0px;font-family: Impact;}
+#search {height: 28px;width: 218px;float:right;margin: 12px 19px 0 0px;}
+#search input[type=text] {height: 28px;width: 149px;border: 0;padding-left: 5px;}
+#search input[type=submit] {height: 28px;width: 69px;border: 0;background: white; font-family: Impact;font-size:16px;color:white;text-shadow: 1px 1px 0px #81520a;position:relative;top:2px;
+background: #fdb804; /* Old browsers */
+background: -moz-linear-gradient(top,  #fdb804 0%, #fb9402 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdb804), color-stop(100%,#fb9402)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fdb804 0%,#fb9402 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fdb804 0%,#fb9402 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdb804', endColorstr='#fb9402',GradientType=0 ); /* IE6-9 */
+}
+#search input[type=submit]:hover {cursor: pointer;
+background: #f7c64a; /* Old browsers */
+background: -moz-linear-gradient(top,  #f7c64a 0%, #f7a431 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7c64a), color-stop(100%,#f7a431)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f7c64a 0%,#f7a431 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f7c64a 0%,#f7a431 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f7c64a 0%,#f7a431 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f7c64a 0%,#f7a431 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7c64a', endColorstr='#f7a431',GradientType=0 ); /* IE6-9 */
+}
+#search input[type=submit]:active {cursor: pointer;background: #ff7f00; /* Old browsers */
+background: -moz-linear-gradient(top,  #ff7f00 0%, #e87400 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff7f00), color-stop(100%,#e87400)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ff7f00 0%,#e87400 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ff7f00 0%,#e87400 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ff7f00 0%,#e87400 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ff7f00 0%,#e87400 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f00', endColorstr='#e87400',GradientType=0 ); /* IE6-9 */
+}
+/*NAVIGATION END*/
+
+/*SLIDER*/
+.slider {width: 1024px;height: 458px;background: gray;margin:0 auto;}
+/*SLIDER END*/
+
+#welcome_box {width: 1024px;height: 93px;background: #fca503;margin:20px auto;margin-top: 5px;}
+#quality_propriety {font-family: Impact; font-size: 40px;font-weight: normal;float: left;width: 430px;border-right: 2px solid white;height: 45px;margin: 20px 20px;color: #2d2d2d ;}
+#welcome_text {width: 500px;float:left;font-size: 12px;margin: 20px 20px; color: white;}
+
+/*PRODUCT NAVIGATION*/
+#product_navigation {width: 233px;height: 500px;float:left;margin: 0 0 80px 0px;}
+#product_navigation h3 {color:#2d2d2d;}
+#product_navigation ul {margin: 0 0 0 -25px;}
+#product_navigation ul li {margin: 22px 0 0 0px; font-size: 16px;color: #676767;list-style-type: none;}
+#product_navigation ul li .bullet {display:block;float:left;width: 12px;height: 12px;background: #fca503;margin: 4px 10px 6px 0px;font-size: 12px;}
+
+#fast_connection {margin: 55px 0 0px 0px;}
+#fast_connection table {float:left;vertical-align: top;font-size: 14px;color: #676;}
+/*PRODUCT NAVIGATION END*/
+
+/*PRODUCT FEATURE BIG BOX*/
+#product_front_container {width: 1024px;height: auto;margin:20px auto;}
+#featured_products {width: 771px;height: auto;float:right;}
+#featured_products h3 {color:#2d2d2d;}
+
+
+.product_box {width: 182px;height: 300px;float:left;margin: 20px 14px 0 0px;float: left;}
+.product_box .price {float: left;position: relative;top:-512px;margin: 11px 0 0 5px; font-size: 22px; font-family: Tahoma;color:#2d2d2d;
+-webkit-transform: rotate(332deg);
+-moz-transform: rotate(332deg);
+-o-transform: rotate(332deg);
+writing-mode: lr-tb;}
+/*.product_row .product_box:last-of-type {margin-right: 0;}*/
+.last {margin-right: 0;}
+.product_title {position: relative;top:-535px;left: 1px;width: 170px;height: 26px;color: #676767;font-family: Tahoma;text-align: center;text-transform:uppercase;}
+.overlay_trigger_link {position:relative;display:block; top:-550px;left:0px;width: 174px;height: 247px;float: left;text-indent: -9999px;}
+.product_thumb {width: 176px;height: 249px;overflow: hidden;float: left;}
+.product_frame {margin: -6px 0 0 -6px;position: relative;top:-249px;}
+
+.overlay_box {display: none;width: 967px;height: 429px;border: 4px solid white;background: #fca503; position:relative; /*!!!! DISPLAY: NONE; И да махна z-index !!!*/
+-webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 1);
+-moz-box-shadow:    0px 3px 30px rgba(0, 0, 0, 1);
+box-shadow:         0px 3px 30px rgba(0, 0, 0, 1);}
+.content_wrap {height: auto;}
+/*Overlay styles*/
+.overlay_pic_column {width: 490px;float:left;height: auto;text-align: center;margin: 20px 0 0 0px;}
+.overlay_info_column {width: 470px;float:right;height: auto;margin: 20px 0 0 0px;}
+ #featured_products .overlay_pic_column .overlay_product_title,#featured_products .overlay_info_column .overlay_product_title {text-align: center;color: white;width: 100%; text-shadow: 1px 1px 0px #81520a;margin: 0 0 15px 0px;text-transform:uppercase;}
+ .info_table {border-collapse: collapse;border: 1px solid white;font-size: 12px;}
+ .info_table tr, .info_table td {border: 1px solid white;}
+ .info_table td {width: 195px;padding: 10px;}
+/*Overlay Styles*/
+/*PRODUCT FEATURE BIG BOX END*/
+
+
+/*FOOTER*/
+#footer {width: 100%;height: 173px;background: #fca503;margin:0 auto;padding-top: 1px;}
+.footer_col {width: 241px;height: 150px;float:left;margin-left: 20px;margin-top: 19px;}
+.footer_col a {margin: 10px 0 0 0px;float:left;display: block;clear: both; color: white;}
+/*FOOTER END*/
+
+#final_footer {width: 100%;height: 50px;line-height: 50px; color: #c5c5c5;}
+
+
+/*PRODUCT PAGE*/
+.path_box {width: 744px;height: 34px;border: 1px solid #d9d6d6;float: right;margin: 0 5px 0 0px;line-height: 34px;padding: 0 0 0 20px;}
+.desc_box {width: 724px;height: auto;border: 1px solid #d9d6d6;float: right;margin: 10px 5px 10px 0px;padding: 20px;}
+.read-more a {font-weight: bold;}
+.read-less a {font-weight: bold;}
+/*PRODUCT PAGE END*/
+
+.caption_price {height: 137px;margin: -30px 0 0 750px;background: #fca503;position: absolute;z-index: 999; font-family: Impact;padding: 0 0 0 20px;
+-webkit-box-shadow: 0px 3px 20px rgba(0, 0, 0, .5);
+-moz-box-shadow:    0px 3px 20px rgba(0, 0, 0, .5);
+box-shadow:         0px 3px 20px rgba(0, 0, 0, .5); text-shadow: -1px 1px 0px #81520a;}
+
+.caption_text {float: right;text-align: right;width: 730px;height: 98px;margin: 0px 0 0 0px;color: #676767;font-size: 16px;}
+.caption_text strong {font-size: 30px;color: #2d2d2d;font-family: Impact;}
+
+.caption_price .big_price {font-size:110px;display: block;float:left;}
+.caption_price .small_price {font-size:60px;display: block;float: left;margin: 10px 0 0 0px;}
+.caption_price .small_text {display: block;float: left;position: relative;top: -20px;left: 0px;font-size: 34px;}
+
+.caption_text p {margin: 0 0 0 0px;padding: 0 0 0 0px;}

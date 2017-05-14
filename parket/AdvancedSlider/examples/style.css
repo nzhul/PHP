@@ -1,0 +1,36 @@
+body
+{
+	background-color:#F1F1F1;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#999;
+}
+
+.slider
+{
+	margin:50px auto;
+	width:1024px;
+	height:345px;
+}
+
+/*
+hides the images and text from within the slider;
+
+this style will be applied only before the 
+slider is instantiated or if the user doesn't have
+javascript enabled;
+
+feel free to replace this style with your own
+*/
+.slider img, .slider .caption
+{
+	position:absolute;
+	left:-9999px;
+}
+
+/*this is for example_api.html*/
+#custom_controls
+{
+	width:200px;
+	margin:0px auto;
+}

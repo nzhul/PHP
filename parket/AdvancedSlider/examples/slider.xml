@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<slider>
+
+	<slide effectType="scale" horizontalSlices="6" verticalSlices="3" slicePattern="spiralCenterToMarginCW" sliceDelay="80" captionSize="35">
+		<path>http://bqworks.com/products/advanced-slider/images/image1.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image1.jpg</thumbnail>
+		<caption>This is just a simple caption.</caption>
+	</slide>
+	
+	<slide effectType="fade" horizontalSlices="1" verticalSlices="1" slicePattern="leftToRight" captionPosition="bottom" captionSize="35">
+		<path>http://bqworks.com/products/advanced-slider/images/image2.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image2.jpg</thumbnail>
+		<caption>You can set the caption's position to left, right, top or bottom.</caption>
+	</slide>
+	
+	<slide effectType="slide" horizontalSlices="10" verticalSlices="1" slicePattern="rightToLeft" sliceDuration="700">
+		<path>http://bqworks.com/products/advanced-slider/images/image3.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image3.jpg</thumbnail>
+	</slide>
+	
+	<slide effectType="height" horizontalSlices="10" verticalSlices="1" slicePattern="leftToRight" slicePoint="centerBottom" sliceDuration="500" captionSize="45">
+		<path>http://bqworks.com/products/advanced-slider/images/image4.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image4.jpg</thumbnail>
+		<caption><![CDATA[You can also add <b>HTML</b> elements like <a href="http://codecanyon.net">links</a> or <input type="button" value="Buttons"/>]]></caption>
+	</slide>
+	
+	<slide effectType="scale" horizontalSlices="10" verticalSlices="5" sliceDuration="800">
+		<path>http://bqworks.com/products/advanced-slider/images/image5.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image5.jpg</thumbnail>
+	</slide>
+
+	<slide effectType="height" horizontalSlices="1" verticalSlices="15" slicePattern="bottomToTop" slicePoint="centerTop" captionPosition="left" captionSize="150">
+		<path>http://bqworks.com/products/advanced-slider/images/image6.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image6.jpg</thumbnail>
+		<caption><![CDATA[<u>Title</u><br/><br/>This is a list of items:<ul><li>first item</li><li>second item</li><li>third item</li></ul>]]></caption>
+	</slide>
+
+	<slide effectType="slide" horizontalSlices="6" verticalSlices="3" slicePattern="topLeftToBottomRight" slideStartPosition="rightBottom" slideStartRatio="0.5" sliceDuration="700">
+		<path>http://bqworks.com/products/advanced-slider/images/image7.jpg</path>
+		<thumbnail>http://bqworks.com/products/advanced-slider/thumbnails/image7.jpg</thumbnail>
+	</slide>
+
+</slider>
