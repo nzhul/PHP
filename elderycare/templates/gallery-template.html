@@ -1,0 +1,13 @@
+{{#rows}}
+<div class="row text-center">
+    {{#cols}}
+    <div class="col-md-4 gallery-col">
+        <img class="gallery-thumbnail wow pulse" src="img/gallery/thumbs/{{filename}}" alt="{{title}}" data-filename="{{filename}}" data-category="{{category_id}}"/>
+        <div class="gallery-image-description">
+            <strong class="gallery-image-title">{{title}}</strong>
+            <p class="actual-description">{{description}}</p>
+        </div>
+    </div>
+    {{/cols}}
+</div>
+{{/rows}}
